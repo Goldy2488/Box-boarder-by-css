@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Animation</title>
+    <style>
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            animation: move 2s infinite;
+        }
+        .in {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes move {
+            0% {
+                left: 0;
+            }
+            50% {
+                left: 100px;
+            }
+            100% {
+                left: 0;
+            }
+        } 
+
+        /* Uncomment and adjust styles if you want to use nested boxes */   
+
+        #box2 {
+            width: 800px;
+            height: 800px;
+            background-color: #2f2f2f;
+            position: relative;
+            padding: 8px;
+            margin: 40% auto;
+            overflow: hidden;
+           
+        }
+
+        #in2 {
+            width: 98%;
+            height: 98%;
+            background-color: #d42222;
+            position: relative;
+            z-index: 99;
+            margin:2% auto;
+          
+        }
+
+        #box2::after {
+            content: "";
+            background-color: white; 
+            position: absolute;
+            border: 1px solid #2cd22c;  
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            height: 1500px;
+            width: 100px;
+            animation: move1 1s infinite;
+            z-index: 1;
+            transition: 0.5s ease-in-out;
+        }
+
+        @keyframes move1 {
+            100% {
+               transform: translate(-50%, -50%) rotate(-135deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Uncomment if you want to use nested boxes -->
+    <div class="box">
+        <div class="in"></div>
+    </div>
+   
+
+    <div id="box2">
+        <div id="in2"></div>
+    </div>
+</body>
+</html>
